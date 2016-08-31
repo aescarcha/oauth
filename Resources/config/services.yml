@@ -1,0 +1,4 @@
+services:
+#    aescarcha_oauth_server.example:
+#        class: Aescarcha\OauthServerBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

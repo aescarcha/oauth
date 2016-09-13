@@ -48,7 +48,7 @@ class AppKernel extends Kernel
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Aescarcha\UserBundle\AescarchaUserBundle(),
-            new Aescarcha\OauthBundle\AescarchaOauthBundle(),
+            new Aescarcha\OauthServerBundle\AescarchaOauthServerBundle(),
         );
 
         // ...
@@ -98,10 +98,10 @@ Configure the bundles in `app/config/config.yml`
 
     fos_oauth_server:
         db_driver:           orm
-        client_class:        Aescarcha\OauthBundle\Entity\Client
-        access_token_class:  Aescarcha\OauthBundle\Entity\AccessToken
-        refresh_token_class: Aescarcha\OauthBundle\Entity\RefreshToken
-        auth_code_class:     Aescarcha\OauthBundle\Entity\AuthCode
+        client_class:        Aescarcha\OauthServerBundle\Entity\Client
+        access_token_class:  Aescarcha\OauthServerBundle\Entity\AccessToken
+        refresh_token_class: Aescarcha\OauthServerBundle\Entity\RefreshToken
+        auth_code_class:     Aescarcha\OauthServerBundle\Entity\AuthCode
         service:
             user_provider: fos_user.user_manager             # This property will be used when valid credentials are given to load the user upon access token creation
 

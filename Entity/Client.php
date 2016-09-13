@@ -11,6 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Client extends BaseClient
 {
     /**
+     * @var int
+     * 
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")

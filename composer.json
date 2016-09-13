@@ -1,0 +1,24 @@
+{
+    "name" : "aescarcha/oauth",
+    "description" : "A bundle to wrap FOSOauthServerBundle and provide oauth to APIs",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "Álvaro Escarcha"
+    }],
+    "keywords" : [
+        "symfony", "oauth"
+    ],
+    "license" : [
+        "MIT"
+    ],
+    "require" : {
+        "php": ">=5.5.9"
+    },
+    "autoload" : {
+        "psr-0" : {
+            "Aescarcha\\OauthBundle" : ""
+        }
+    },
+    "minimum-stability": "dev",
+    "target-dir" : "Aescarcha/OauthBundle"
+}

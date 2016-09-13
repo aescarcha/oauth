@@ -1,3 +1,2 @@
-aescarcha_oauth_server_homepage:
-    path:     /
-    defaults: { _controller: AescarchaOauthServerBundle:Default:index }
+fos_oauth_server_token:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"

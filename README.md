@@ -63,9 +63,14 @@ Step 4: Configure the Bundle
 
 Enable the routes in `app/config/routing.yml`
 
-    aescarcha_oauth:
-        resource: "@AescarchaOauthBundle/Resources/config/routing.yml"
+    NelmioApiDocBundle:
+        resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+        prefix:   /api/doc
+
+    aescarcha_oauth_server:
+        resource: "@AescarchaOauthServerBundle/Resources/config/routing.yml"
         prefix:   /
+
 
 
 Configure the bundles in `app/config/config.yml`
@@ -114,15 +119,6 @@ Add this to `app/config/security.yml`
                 pattern: ^/oauth/v2/token
                 security: false
 
-Add the following to `app/config/routing.yml` to be able to use the docs :
-
-    # app/config/routing.yml
-    NelmioApiDocBundle:
-        resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
-        prefix:   /api/doc
-
-
-Add to `app/config/services.yml`
 
 Testing
 ============

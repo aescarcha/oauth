@@ -16,9 +16,9 @@
     },
     "autoload" : {
         "psr-0" : {
-            "Aescarcha\\OauthBundle" : ""
+            "Aescarcha\\OauthServerBundle" : ""
         }
     },
     "minimum-stability": "dev",
-    "target-dir" : "Aescarcha/OauthBundle"
+    "target-dir" : "Aescarcha/OauthServerBundle"
 }

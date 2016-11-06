@@ -45,6 +45,21 @@ class FunctionalTest extends WebTestCase
         $this->assertEquals( 'bearer', $response['token_type'] );
         $this->assertTrue( strlen($response['refresh_token']) > 10 );
         $this->assertEquals( 3600, $response['expires_in'] );
+        $crawler = $this->client->request(
+                                          'GET',
+                                          '/businesses', //@TODO: Move this to a common route
+                                          array(),
+                                          array(),
+                                          array('CONTENT_TYPE' => 'application/json'));
+        $this->assertEquals(401, $this->client->getResponse()->getStatusCode());
+        $crawler = $this->client->request(
+                                          'GET',
+                                          '/businesses', //@TODO: Move this to a common route
+                                          array(),
+                                          array(),
+                                          array('CONTENT_TYPE' => 'application/json', 'Authorization:' => 'Bearer '. $response['access_token']));
+        echo $this->client->getResponse()->getContent();
+        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
 
 

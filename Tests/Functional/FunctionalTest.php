@@ -18,6 +18,25 @@ class FunctionalTest extends WebTestCase
         $this->manager = $this->client->getContainer()->get('doctrine.orm.entity_manager');
     }
 
+    
+    protected function loadFixtures(array $classNames, $omName = null, $registryName = 'doctrine', $purgeMode = null)
+    {
+        $container = $this->getContainer();
+        /** @var ManagerRegistry $registry */
+        $registry = $container->get($registryName);
+        /** @var ObjectManager $om */
+        $om = $registry->getManager($omName);
+        $connection = $om->getConnection();
+        if ($connection->getDriver() instanceof \Doctrine\DBAL\Driver\AbstractMySQLDriver) {
+            $connection->exec(sprintf('SET foreign_key_checks=%s', 0));
+        }
+        parent::loadFixtures($classNames, $omName , $registryName , $purgeMode);
+        if ($connection->getDriver() instanceof \Doctrine\DBAL\Driver\AbstractMySQLDriver) {
+            $connection->exec(sprintf('SET foreign_key_checks=%s', 1));
+        }
+    }
+
+
     public function testCreate()
     {
         $clientManager = $this->client->getContainer()->get('fos_oauth_server.client_manager.default');
